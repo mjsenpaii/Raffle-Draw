@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle Draw</title>
+    <link rel="stylesheet" href="styles.css">
+    <audio id="bgIdleSound" src="audio/idle-background.mp3" preload="auto"></audio>
+    <audio id="drawSound" src="audio/scatter.mp3" preload="auto"></audio>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="slot-machine">
+            
+            <div class="slots" id="slots">
+                <!-- Slots will be generated here -->
+            </div>
+            <div class="controls">
+                <label for="departmentSelect">Choose Department:</label>
+                <select id="departmentSelect">
+                    <option value="" disabled selected>Select a department</option>
+                    <option value="cba">College of Business and Accountancy</option>
+                    <option value="cics">College of Information and Computing Sciences</option>
+                    <option value="ce">College of Education</option>
+                    <option value="cahs">College of Allied Health Services</option>
+                    <option value="eng">College of Engineering</option>
+                    <option value="cit">College of Industrial Technology</option>
+                    <option value="ces">College of Environmental Science</option>
+                    <option value="cgcj">College of Governance & College of Criminal Justice Education</option>
+                </select>
+                <button id="startBtn">Start Raffle</button>
+            </div>
+        </div>
+        <div class="results">
+            <h2>Winners</h2>
+            <ul id="winnerList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
