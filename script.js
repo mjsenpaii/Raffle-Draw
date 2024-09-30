@@ -438,6 +438,20 @@ function playBackgroundAudio() {
     });
 }
 
+window.onload = function() {
+    const creditDiv = document.createElement('div');
+    creditDiv.id = 'mjsenpaii';
+    creditDiv.textContent = '© mjsenpaii';
+    creditDiv.style.position = 'fixed';
+    creditDiv.style.top = '8px';
+    creditDiv.style.right = '8px';
+    creditDiv.style.fontSize = '12px';
+    creditDiv.style.color = 'black';
+    creditDiv.style.zIndex = '999';
+    creditDiv.style.fontFamily = 'Roboto, sans-serif';
+    document.body.appendChild(creditDiv);
+};
+
 function startRaffle() {
     console.log("Starting raffle..."); // Debug log
 
