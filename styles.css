@@ -54,6 +54,7 @@
         /* Subtle border matching darker green */
         color: #000;
         /* Dark text for visibility */
+        height: 86vh;
     }
     #mjsenpaii {
         position: fixed;
@@ -136,12 +137,11 @@
         border-radius: 25px;
         cursor: pointer;
         transition: background 0.3s ease, transform 0.2s ease;
-        margin-top: 20px;
         font-size: 1.1em;
     }
 
     button:hover {
-        background: linear-gradient(45deg, #1de9b6, #00bcd4);
+        background: linear-gradient(-45deg, #4caf50, #4ddd4d);
         transform: scale(1.05);
     }
 

@@ -416,10 +416,6 @@ const slotsContainer = document.getElementById('slots');
 const startBtn = document.getElementById('startBtn');
 const winnerList = document.getElementById('winnerList');
 
-// Remove the department select dropdown
-const departmentSelect = document.getElementById('departmentSelect');
-if (departmentSelect) departmentSelect.remove();
-
 function createSlots() {
     slotsContainer.innerHTML = '';
     for (let i = 0; i < 20; i++) {
