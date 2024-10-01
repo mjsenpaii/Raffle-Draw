@@ -481,33 +481,31 @@ function startRaffle() {
 
 
 
-
 function selectWinners() {
     const winners = [];
     const allParticipants = [];
 
-    // Step 1: Select 1 winner from each college
+    // Step 1: Select 1 winner from each department
     Object.keys(allDepartments).forEach(department => {
-        const departmentTeachers = allDepartments[department];
+        const departmentTeachers = [...allDepartments[department]]; // Copy array
         const randomIndex = Math.floor(Math.random() * departmentTeachers.length);
         winners.push({ name: departmentTeachers[randomIndex], department });
+        departmentTeachers.splice(randomIndex, 1); // Remove selected winner
     });
 
-    // Step 2: Select 8 winners from one random college
+    // Step 2: Select 8 winners from a random department
     const randomCollegeIndex = Math.floor(Math.random() * Object.keys(allDepartments).length);
     const selectedCollege = Object.keys(allDepartments)[randomCollegeIndex];
-    const selectedCollegeTeachers = [...allDepartments[selectedCollege]]; // Copy array to avoid mutation
+    const selectedCollegeTeachers = [...allDepartments[selectedCollege]];
 
-    // Ensure we do not exceed the number of available teachers
     while (winners.length < 8 && selectedCollegeTeachers.length > 0) {
         const randomIndex = Math.floor(Math.random() * selectedCollegeTeachers.length);
         const selectedWinner = selectedCollegeTeachers[randomIndex];
 
-        // Prevent duplicates and ensure max 2 winners from the same department
         if (!winners.some(w => w.name === selectedWinner) &&
             winners.filter(w => w.department === selectedCollege).length < 2) {
             winners.push({ name: selectedWinner, department: selectedCollege });
-            selectedCollegeTeachers.splice(randomIndex, 1); // Remove the selected winner
+            selectedCollegeTeachers.splice(randomIndex, 1); // Remove selected winner
         }
     }
 
@@ -516,20 +514,31 @@ function selectWinners() {
         allParticipants.push(...departmentArray);
     });
 
-    // Step 4: Select 2 additional random winners from all participants
+    // Step 4: Select 2 additional random winners
     while (winners.length < 9) {
         const randomIndex = Math.floor(Math.random() * allParticipants.length);
         const randomWinner = allParticipants[randomIndex];
 
-        // Ensure no duplicate winners and max 2 winners from any department
         if (!winners.some(w => w.name === randomWinner) &&
             winners.filter(w => w.department === getDepartmentByTeacher(randomWinner)).length < 2) {
             winners.push({ name: randomWinner, department: getDepartmentByTeacher(randomWinner) });
+            allParticipants.splice(randomIndex, 1); // Remove selected winner
         }
     }
 
     return winners;
 }
+
+function getDepartmentByTeacher(teacherName) {
+    // Find the department by teacher's name
+    for (let department in allDepartments) {
+        if (allDepartments[department].includes(teacherName)) {
+            return department;
+        }
+    }
+    return null;
+}
+
 
 
 function getDepartmentByTeacher(teacherName) {
