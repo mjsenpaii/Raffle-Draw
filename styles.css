@@ -96,7 +96,7 @@
     }
 
     .slot {
-        height: 100px;
+        height: 115px;
         /* Fixed height for the cards */
         border-radius: 8px;
         display: flex;
