@@ -371,30 +371,30 @@ const departmentTeachers = {
     ],
     cass: [
         "Dr. Ernesto L. Largado",
-    "Mrs. Jholey Rose L. Lancion",
-    "Mr. Jerome L. Lingon",
-    "Mrs. Rosalinda E. Punzalan",
-    "Ms. Jean Grace M. Solina",
-    "Ms. Aubrey Jen T. Matibag",
-    "Mrs. Anna Roffel O. Lozada",
-    "Ms. Cristina S. Atienza",
-    "Dr. Randy T. Nobleza",
-    "Ms. Sheryl M. Podra",
-    "Mrs. Cherie Ann M. Luna",
-    "Mr. Gerald M. Pajanustan",
-    "Mrs. Emelita R. Rodelas",
-    "Dr. Rosalyn J. Dasco",
-    "Ms. Norilie Dela Cruz",
-    "Ms. Ma. Jessica L. Semilla",
-    "Ms. Nonah Bianca L. Lasac",
-    "Ms. Chinee Lyn Marciano",
-    "Ms. Andita Esmediana",
-    "Mrs. May Anne C. Bañaga",
-    "Mr. John Lester Historillo",
-    "Engr. Bernadette Ramiro",
-    "Ms. Lovely M. Morong",
-    "Mr. Aurel M. Landoy",
-    "Janella N. Laderas"
+        "Mrs. Jholey Rose L. Lancion",
+        "Mr. Jerome L. Lingon",
+        "Mrs. Rosalinda E. Punzalan",
+        "Ms. Jean Grace M. Solina",
+        "Ms. Aubrey Jen T. Matibag",
+        "Mrs. Anna Roffel O. Lozada",
+        "Ms. Cristina S. Atienza",
+        "Dr. Randy T. Nobleza",
+        "Ms. Sheryl M. Podra",
+        "Mrs. Cherie Ann M. Luna",
+        "Mr. Gerald M. Pajanustan",
+        "Mrs. Emelita R. Rodelas",
+        "Dr. Rosalyn J. Dasco",
+        "Ms. Norilie Dela Cruz",
+        "Ms. Ma. Jessica L. Semilla",
+        "Ms. Nonah Bianca L. Lasac",
+        "Ms. Chinee Lyn Marciano",
+        "Ms. Andita Esmediana",
+        "Mrs. May Anne C. Bañaga",
+        "Mr. John Lester Historillo",
+        "Engr. Bernadette Ramiro",
+        "Ms. Lovely M. Morong",
+        "Mr. Aurel M. Landoy",
+        "Janella N. Laderas"
     ]
 };
 
@@ -434,7 +434,7 @@ function playBackgroundAudio() {
     });
 }
 
-window.onload = function() {
+window.onload = function () {
     const creditDiv = document.createElement('div');
     creditDiv.id = 'mjsenpaii';
     creditDiv.textContent = '© Mark John Matining';
@@ -577,7 +577,7 @@ function displayWinners(winners) {
     winnerList.innerHTML = '';
     winners.forEach((winner, index) => {
         const li = document.createElement('li');
-        const capitalizedName = winner.name.toLowerCase().replace(/\b\w/g, function(c) {
+        const capitalizedName = winner.name.toLowerCase().replace(/\b\w/g, function (c) {
             return c.toUpperCase();
         });
         li.textContent = `${capitalizedName} (${winner.department.toUpperCase()})`; // Display winner's name and department
@@ -586,8 +586,8 @@ function displayWinners(winners) {
         li.style.fontWeight = 'bold';
         li.style.opacity = '0';
         li.style.transition = 'opacity 0.5s ease';
-        
-                
+
+
 
         winnerList.appendChild(li);
         setTimeout(() => {
@@ -598,3 +598,4 @@ function displayWinners(winners) {
 
 startBtn.addEventListener('click', startRaffle);
 window.onload = playBackgroundAudio;
+
