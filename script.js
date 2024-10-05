@@ -437,11 +437,11 @@ function playBackgroundAudio() {
 window.onload = function() {
     const creditDiv = document.createElement('div');
     creditDiv.id = 'mjsenpaii';
-    creditDiv.textContent = '© mjsenpaii';
+    creditDiv.textContent = '© Mark John Matining';
     creditDiv.style.position = 'fixed';
     creditDiv.style.top = '8px';
     creditDiv.style.right = '8px';
-    creditDiv.style.fontSize = '12px';
+    creditDiv.style.fontSize = '20px';
     creditDiv.style.color = 'black';
     creditDiv.style.zIndex = '999';
     creditDiv.style.fontFamily = 'Roboto, sans-serif';
@@ -514,7 +514,7 @@ function selectWinners() {
         allParticipants.push(...departmentArray);
     });
 
-    // Step 4: Select 2 additional random winners
+    // Step 4: Select 1 additional random winners
     while (winners.length < 9) {
         const randomIndex = Math.floor(Math.random() * allParticipants.length);
         const randomWinner = allParticipants[randomIndex];
@@ -577,12 +577,17 @@ function displayWinners(winners) {
     winnerList.innerHTML = '';
     winners.forEach((winner, index) => {
         const li = document.createElement('li');
-        li.textContent = `${winner.name} (${winner.department.toUpperCase()})`; // Display winner's name and department
+        const capitalizedName = winner.name.toLowerCase().replace(/\b\w/g, function(c) {
+            return c.toUpperCase();
+        });
+        li.textContent = `${capitalizedName} (${winner.department.toUpperCase()})`; // Display winner's name and department
 
         li.style.fontSize = '30px';
         li.style.fontWeight = 'bold';
         li.style.opacity = '0';
         li.style.transition = 'opacity 0.5s ease';
+        
+                
 
         winnerList.appendChild(li);
         setTimeout(() => {
